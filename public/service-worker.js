@@ -50,7 +50,7 @@ self.addEventListener("activate", function(evt) {
 // fetch
 self.addEventListener("fetch", function(evt) {
   const {url} = evt.request;
-  if (url.includes("/api/transaction/") || url.includes("/api/transaction/bulk")) {
+  if (url.includes("/api/transaction") || url.includes("/api/transaction/bulk")) {
     evt.respondWith(
       caches.open(DATA_CACHE_NAME).then(cache => {
         return fetch(evt.request)
